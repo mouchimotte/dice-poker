@@ -20,12 +20,12 @@ def dice_digest(dice: list[int]) -> tuple[list[int], list[int]]:
 
     We can resume all possible combinaisons of 5 dice by:
     - a-a-a-a-a 5 mega
-    - a-a-a-a-b 4-1 carre
+    - a-a-a-a-b 4-1 quads
     - a-a-a-b-b 3-2 full
-    - a-a-a-b-c 3-1-1 brelan
-    - a-a-b-b-c 2-2-1 double paire
-    - a-a-b-c-d 2-1-1-1 paire + petite suite
-    - a-b-c-d-e 1-1-1-1-1 grande suite + petite suite + rien
+    - a-a-a-b-c 3-1-1 trips
+    - a-a-b-b-c 2-2-1 two pair
+    - a-a-b-c-d 2-1-1-1 pair + little straight
+    - a-b-c-d-e 1-1-1-1-1 great straight + little straight + rien
     """
     counts = [0] * 7
     for die in dice:

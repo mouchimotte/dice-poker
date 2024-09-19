@@ -35,13 +35,6 @@ Ex: `3-3-3-3-3`
 Most difficult pattern to match, in every different strategies of re-roll or not.
 Base of the game it return the maximum number of points, 1000.
 
-| Strategy                            | % of appearance |
-|-------------------------------------|-----------------|
-| Without re-roll                     | 0.08%           | 
-| Smart Re-roll                       | 0.93%           |
-| Re-roll to match pattern            | 1.25%           |
-| Sequential re-roll to match pattern | 0.08%           |
-
 ### Great straight
 
 > 5 dice of sequential rank
@@ -49,13 +42,6 @@ Base of the game it return the maximum number of points, 1000.
 Ex: `1-2-3-4-5`
 
 Only 2 combinaisons possible.
-
-| Strategy                            | % of appearance |
-|-------------------------------------|-----------------|
-| Without re-roll                     | 1.52%           | 
-| Smart Re-roll                       | 1.45%           |
-| Re-roll to match pattern            | 5.51%           |
-| Sequential re-roll to match pattern | 1.54%           |
 
 ### Little straight
 
@@ -114,15 +100,15 @@ Each have been run 1000000 times.
 
 | Pattern\Strategy | Without Re-roll | Smart Re-roll | Re-roll to match pattern | Sequential re-roll to match pattern |
 |------------------|-----------------|---------------|--------------------------|-------------------------------------|
-| mega             | 0.08%           | 0.93%         | 1.25%                    | 0.08%                               |
-| grande suite     | 1.52%           | 1.45%         | 5.51%                    | 1.54%                               |
-| petite suite     | 7.68%           | 8.10%         | 21.21%                   | 7.67%                               |
-| carré            | 1.95%           | 8.70%         | 12.23%                   | 1.96%                               |
-| full             | 3.85%           | 13.73%        | 14.75%                   | 3.88%                               |
-| brelan           | 15.44%          | 20.57%        | 39.10%                   | 15.45%                              |
-| double paire     | 23.16%          | 28.02%        | 45.55%                   | 23.15%                              |
-| paire            | 40.17%          | 12.19%        | 55.82%                   | 46.30%                              |
-| nothing          | 6.16%           | 0.85%         | not tested               | not tested                          |
+| Méga             | 0.08%           | 0.93%         | 1.25%                    | 0.08%                               |
+| Great Straight   | 1.52%           | 1.45%         | 5.51%                    | 1.54%                               |
+| Little Straight  | 7.68%           | 8.10%         | 21.21%                   | 7.67%                               |
+| Quads            | 1.95%           | 8.70%         | 12.23%                   | 1.96%                               |
+| Full             | 3.85%           | 13.73%        | 14.75%                   | 3.88%                               |
+| Trips            | 15.44%          | 20.57%        | 39.10%                   | 15.45%                              |
+| Two Pair         | 23.16%          | 28.02%        | 45.55%                   | 23.15%                              |
+| Pair             | 40.17%          | 12.19%        | 55.82%                   | 46.30%                              |
+| Nothing          | 6.16%           | 0.85%         | not tested               | not tested                          |
 
 ### Without re-roll
 
@@ -156,9 +142,21 @@ The Strategy could lead to get another pattern than the one expected,
 So the simulation return also the list of other pattern who have match
 after the re-roll and their probability of appearance.
 
+Then we can obtain the estimated probability when looking for Méga:
+
+- Méga: 1.2486%
+- Great Straight: 0.2511%
+- Little Straight: 3.9166%
+- Quads: 11.8591%
+- Full: 9.3591%
+- Trips: 31.1485%
+- Two pair: 21.3051%
+- Pair: 20.3902%
+- Nothing: 0.5217%
+
 ### Smart Re-roll
 
 Like in the real life, when you re-roll its to match the most valuable pattern.
 
 For instance, if we get a Quads at the first roll of dice,
-We will try to re-roll the last die to try to match the Méga.
+We will re-roll the last die to try to match the Méga.

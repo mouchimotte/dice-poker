@@ -26,30 +26,30 @@ def simulate_smart_try() -> tuple[str, str | None]:
             break
 
     # Stop at first roll for GOOD patterns
-    if first_pattern in ["mega", "full", "grande suite"]:
+    if first_pattern in ["mega", "full", "great straight"]:
         return first_pattern, None
 
     # Rerun to get more point for following patterns:
-    # - carre
-    # - petite suite
-    # - brelan
-    # - double paire
-    # - paire
+    # - quads
+    # - little straight
+    # - trips
+    # - two pair
+    # - pair
     # - no pattern
-    if first_pattern == "carre":
+    if first_pattern == "quads":
         # will rerun only the different die
         dice = [sorted_counts[0], sorted_counts[0], sorted_counts[0], sorted_counts[0]] + roll_dice(1)
-    elif first_pattern == "petite suite":
+    elif first_pattern == "little straight":
         # will rerun only the extra die
         subset_max = get_max_subset(counts)
         dice = subset_max + roll_dice(1)
-    elif first_pattern == "brelan":
+    elif first_pattern == "trips":
         # will rerun only 2 different dice
         dice = [sorted_counts[0], sorted_counts[0], sorted_counts[0]] + roll_dice(2)
-    elif first_pattern == "double paire":
+    elif first_pattern == "two pair":
         # will rerun only the different die
         dice = [sorted_counts[0], sorted_counts[0], sorted_counts[1], sorted_counts[1]] + roll_dice(1)
-    elif first_pattern == "paire":
+    elif first_pattern == "pair":
         # will rerun the 3 different dice, not the pair
         dice = [sorted_counts[0], sorted_counts[0]] + roll_dice(3)
     # no pattern
